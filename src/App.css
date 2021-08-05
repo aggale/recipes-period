@@ -2,8 +2,8 @@
 
 body {
   text-align: center;
-  background: url("./assets/images/background2.png");
-  background-size: 100%;
+  background: url("./assets/images/background-repeat.png");
+  background-repeat: repeat;
 }
 
 .centered {

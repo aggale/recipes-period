@@ -1,3 +1,5 @@
 .image-button {
   margin: 2rem;
+  width: 25rem;
+  box-shadow: 2px 3px rgb(8, 35, 109);
 }
