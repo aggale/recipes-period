@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
 
-import "./Landing.css";
+import "./Landing.styles.css";
 
 import logo from "../../assets/images/Recipes-small-logo.png";
 import browseButton from "../../assets/images/browse-button.png";
