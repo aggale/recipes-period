@@ -1,10 +1,10 @@
 import React from "react";
 import "./Landing.css";
-import logo from "../assets/images/Recipes-small-logo.png";
-import browseButton from "../assets/images/browse-button.png";
-import searchButton from "../assets/images/search-button.png";
+import logo from "../../assets/images/Recipes-small-logo.png";
+import browseButton from "../../assets/images/browse-button.png";
+import searchButton from "../../assets/images/search-button.png";
 
-const Landing = () => {
+const LandingPage = () => {
   return (
     <div className="centered column">
       <img src={logo} alt="Recipes Period logo" />
@@ -14,4 +14,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default LandingPage;

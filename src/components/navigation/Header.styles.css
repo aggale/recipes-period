@@ -1,0 +1,14 @@
+.header-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    width: 20%;
+    margin: auto;
+}
+
+.separator {
+    height: 40px;
+    margin: 10px auto 0px auto;
+}
