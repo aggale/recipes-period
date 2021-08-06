@@ -1,8 +1,8 @@
 import React from 'react';
 
-import TopNavigation from './TopNavigation.component';
+import TopNavigation from '../TopNavigation/TopNavigation.component';
 
-import logo from "../../assets/images/Recipes-small-logo.png";
+import logo from "../../../assets/images/Recipes-small-logo.png";
 //import separator from '../../assets/images/separator.png';
 
 import './Header.styles.css';
