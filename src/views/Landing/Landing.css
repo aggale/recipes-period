@@ -1,3 +1,7 @@
+img:hover {
+  cursor: pointer;
+}
+
 .image-button {
   margin: 2rem;
 }
