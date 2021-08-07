@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TranslucentBox from '../../components/containers/TranslucentBox.component';
+import TranslucentBox from '../../components/containers/TranslucentBox/TranslucentBox.component';
 
 import './About.styles.css';
 
