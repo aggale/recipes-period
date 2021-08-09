@@ -1,11 +1,5 @@
 /* That blue: #2a59e9 */
 
-body {
-  text-align: center;
-  background: url("./assets/images/background-repeat.png");
-  background-size: 100%;
-}
-
 .centered {
   display: flex;
   align-items: center;

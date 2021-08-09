@@ -1,3 +1,9 @@
+.landing-body {
+  text-align: center;
+  background: url("../../assets/images/background-repeat.png");
+  background-size: 100%;
+}
+
 img:hover {
   cursor: pointer;
 }

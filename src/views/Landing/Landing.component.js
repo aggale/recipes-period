@@ -16,7 +16,7 @@ const LandingPage = () => {
   }
 
   return (
-    <div className="centered column">
+    <div className="landing-body centered column">
       <img src={logo} alt="Recipes Period logo" />
       <img src={browseButton} alt="Browse" className="image-button" onClick={onNavigate('browse')} />
       <img src={searchButton} alt="Search" className="image-button" onClick={onNavigate('search')} />
