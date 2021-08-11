@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { convertRecipesSnapshotToMap, firestore } from '../../firebase/firebase-utils';
 
-import { updateRecipesAction } from '../../redux/recipes/recipes.actions';
+import { recipesUpdate } from '../../redux/recipes/recipes.slice';
 
 import SummaryCard from '../../components/containers/SummaryCard/SummaryCard.component';
 
@@ -22,7 +22,7 @@ const BrowsePage = () => {
         const unsubscribeFromRecipes = recipesRef.onSnapshot(async (snapshot) => {
             const recipesMap = convertRecipesSnapshotToMap(snapshot);
 
-            dispatch(updateRecipesAction(recipesMap));
+            dispatch(recipesUpdate(recipesMap));
         });
 
         return () => {
