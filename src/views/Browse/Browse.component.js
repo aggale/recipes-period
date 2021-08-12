@@ -4,21 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { convertRecipesSnapshotToMap, firestore } from '../../firebase/firebase-utils';
 
 import { recipesUpdate } from '../../redux/recipes/recipes.slice';
+import { selectRecipesForSummary } from '../../redux/recipes/recipes.selectors';
 
 import SummaryCard from '../../components/containers/SummaryCard/SummaryCard.component';
 
 import './Browse.styles.css'
 
-
 const BrowsePage = () => {
     const dispatch = useDispatch();
-    const recipesObj = useSelector(state => state.recipes.recipes);
-    const recipeItems = recipesObj ? Object.values(recipesObj) : [];
-    // Create recipes with a list of ingredients without measurements
-    const recipeItemsWithIngredientList = recipeItems.map(recipe => ({
-        ...recipe, 
-        ingredients: Object.keys(recipe.ingredients).reduce((list, ingredient) => list + ', ' + ingredient)
-    }));
+    const recipes = useSelector(selectRecipesForSummary);
 
     // Get firestore data
     useEffect(() => {
@@ -37,7 +31,7 @@ const BrowsePage = () => {
 
     return (
         <div className="browse-cards">
-            {recipeItemsWithIngredientList.map(recipe => <SummaryCard key={recipe.title} {...recipe} />)}       
+            {recipes.map(recipe => <SummaryCard key={recipe.title} {...recipe} />)}       
         </div>
     );
 }
