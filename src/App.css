@@ -9,3 +9,7 @@
 .column {
   flex-direction: column;
 }
+
+.bold {
+  font-weight: bold;
+}

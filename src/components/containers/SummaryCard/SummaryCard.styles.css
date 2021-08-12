@@ -2,3 +2,13 @@
   width: 50%;
   margin: 1vh 1vw;
 }
+
+.description {
+  font-size: large;
+}
+
+.extra-info p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+

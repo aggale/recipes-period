@@ -14,6 +14,11 @@ const BrowsePage = () => {
     const dispatch = useDispatch();
     const recipesObj = useSelector(state => state.recipes.recipes);
     const recipeItems = recipesObj ? Object.values(recipesObj) : [];
+    // Create recipes with a list of ingredients without measurements
+    const recipeItemsWithIngredientList = recipeItems.map(recipe => ({
+        ...recipe, 
+        ingredients: Object.keys(recipe.ingredients).reduce((list, ingredient) => list + ', ' + ingredient)
+    }));
 
     // Get firestore data
     useEffect(() => {
@@ -32,8 +37,7 @@ const BrowsePage = () => {
 
     return (
         <div className="browse-cards">
-            {recipeItems.map(recipe => <SummaryCard key={recipe.title} title={recipe.title} description={recipe.description} />)}
-            
+            {recipeItemsWithIngredientList.map(recipe => <SummaryCard key={recipe.title} {...recipe} />)}       
         </div>
     );
 }
