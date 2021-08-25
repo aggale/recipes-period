@@ -12,11 +12,7 @@ const BrowsePage = () => {
     const dispatch = useDispatch();
     let recipes = useSelector(selectRecipesForSummary);
 
-    // Get firestore data
-    
-
     useEffect( ()  => {
-        console.log('use effect')
         dispatch(fetchRecipes());
     }, []);
 
