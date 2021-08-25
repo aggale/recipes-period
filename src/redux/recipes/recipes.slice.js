@@ -32,7 +32,6 @@ export const fetchRecipes = () => async (dispatch) => {
 export const fetchImageUrl = (recipe) => async (dispatch) => {
     try {
         const imageUrl = await getImageUrl(recipe.image);
-        console.log("fetch: ", imageUrl)
         dispatch(imageUrlReceived({ recipeId: recipe.title, imageUrl}));
     } catch (error) {
         console.error(error);

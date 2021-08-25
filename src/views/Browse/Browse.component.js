@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchRecipes, fetchImageUrl } from '../../redux/recipes/recipes.slice';
-import { selectImageUrls, selectRecipesForSummary } from '../../redux/recipes/recipes.selectors';
+import { selectImageUrls, selectLoadingStatus, selectRecipesForSummary } from '../../redux/recipes/recipes.selectors';
 
 import SummaryCard from '../../components/containers/SummaryCard/SummaryCard.component';
+import Loading from '../../components/containers/Loading/Loading.component';
 
 import './Browse.styles.css'
 
@@ -12,6 +13,7 @@ const BrowsePage = () => {
     const dispatch = useDispatch();
     let recipes = useSelector(selectRecipesForSummary);
     let imageUrls = useSelector(selectImageUrls);
+    let loading = useSelector(selectLoadingStatus);
 
     useEffect( ()  => {
         dispatch(fetchRecipes());
@@ -31,7 +33,7 @@ const BrowsePage = () => {
 
     return (
         <div className="browse-cards">
-            {recipes.map(recipe => <SummaryCard key={recipe.title} imageUrl={imageUrls[recipe.title]} {...recipe} />)}       
+            {loading ? <Loading /> : recipes.map(recipe => <SummaryCard key={recipe.title} imageUrl={imageUrls[recipe.title]} {...recipe} />)}       
         </div>
     );
 }

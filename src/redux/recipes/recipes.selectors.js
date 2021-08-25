@@ -4,6 +4,8 @@ export const selectRecipeObj = (state) => state.recipes.recipes;
 
 export const selectImageUrls = (state) => state.recipes.imageUrls;
 
+export const selectLoadingStatus = (state) => state.recipes.loading;
+
 export const selectRecipes = createSelector(
     [selectRecipeObj], 
     (recipesObj) => recipesObj ? Object.values(recipesObj) : []
