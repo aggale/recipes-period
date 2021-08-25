@@ -46,8 +46,8 @@ const firebaseConfig = {
    * Get a url based on the name of the image in Firestore
    * Reference: https://medium.com/@sultanbutt820/react-native-image-upload-retrieve-delete-from-firebase-cloud-storage-ios-android-e05c7cdbf1d2
    */
-const getImageUrl = async (imageName) => {
-    console.log(imageName)
+export const getImageUrl = async (imageName) => {
+    console.log('image: ', imageName)
     if (imageName) {
         const imageRef = firebase.storage().ref('/' + imageName);
         try {

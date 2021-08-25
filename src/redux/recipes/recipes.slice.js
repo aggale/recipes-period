@@ -1,9 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { firestore, convertRecipesSnapshotToMap } from '../../firebase/firebase-utils.js';
+import { firestore, convertRecipesSnapshotToMap, getImageUrl } from '../../firebase/firebase-utils.js';
 
-const initialState = {};
+const initialState = { recipes: {}, imageUrls: {} };
 
+/**
+ * Gets recipe data out of Firestore.
+ * @returns a map of recipe objects
+ */
 export const fetchRecipes = () => async (dispatch) => {
     try {
         dispatch(recipesLoading());
@@ -13,7 +17,25 @@ export const fetchRecipes = () => async (dispatch) => {
 
         dispatch(recipesReceived(recipeData));
     } catch (error) {
-        console.log(error);
+        console.error(error);
+    }
+}
+
+/**
+ * Fetches the url for the image being stored in Google Firebase Storage.
+ * We'll do this for each image as we need it and store the result in a map
+ * in redux so that we can memoize and save trips.
+ * @param {*} recipe recipe object to get image for
+ * @returns An object with the identifier of the recipe and the imageUrl 
+ * or null if image not found
+ */
+export const fetchImageUrl = (recipe) => async (dispatch) => {
+    try {
+        const imageUrl = await getImageUrl(recipe.image);
+        console.log("fetch: ", imageUrl)
+        dispatch(imageUrlReceived({ recipeId: recipe.title, imageUrl}));
+    } catch (error) {
+        console.error(error);
     }
 }
 
@@ -27,10 +49,13 @@ const recipesSlice = createSlice({
         recipesReceived(state, action) {
             state.loading = false;
             state.recipes = action.payload;
+        },
+        imageUrlReceived(state, action) {
+            state.imageUrls[action.payload.recipeId] = action.payload.imageUrl;
         }
     },
 });
 
-export const { recipesLoading, recipesReceived } = recipesSlice.actions;
+export const { recipesLoading, recipesReceived, imageUrlReceived } = recipesSlice.actions;
 
 export default recipesSlice.reducer;
