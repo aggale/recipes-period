@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/storage';
 
 const firebaseConfig = {
     apiKey: "AIzaSyA13ED-Z8x5FLpeEzdSm-VrifHOypF6kgc",
@@ -23,15 +24,38 @@ const firebaseConfig = {
    */
   export const convertRecipesSnapshotToMap = (recipes) => {
       return recipes.docs.map(doc => {
-          const { title, description, difficulty, ingredients, time } = doc.data();
+          const { title, description, difficulty, ingredients, time, image } = doc.data();
+
+         //const imageUrl = await getImageUrl(image);
+         
+          console.log('here', title)
 
           return {
               title,
               description,
               difficulty,
               ingredients,
-              time
+              time,
+              image
           };
       })
       .reduce((recipesObj, recipe) => ({...recipesObj, [recipe.title]: recipe}), {});
   }
+
+  /**
+   * Get a url based on the name of the image in Firestore
+   * Reference: https://medium.com/@sultanbutt820/react-native-image-upload-retrieve-delete-from-firebase-cloud-storage-ios-android-e05c7cdbf1d2
+   */
+const getImageUrl = async (imageName) => {
+    console.log(imageName)
+    if (imageName) {
+        const imageRef = firebase.storage().ref('/' + imageName);
+        try {
+            return await imageRef.getDownloadURL();
+        } catch (e) {
+            console.log('Error getting image url: ', e)
+        }
+    }
+    console.log('exiting')
+    return null;
+}

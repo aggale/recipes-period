@@ -18,4 +18,4 @@ export const selectRecipesForSummary = createSelector(
         ...recipe, 
         ingredients: Object.keys(recipe.ingredients).reduce((list, ingredient) => list + ', ' + ingredient)
     }))
-)
+);

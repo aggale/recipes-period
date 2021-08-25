@@ -4,18 +4,19 @@ import Card from '../Card/Card.component';
 
 import './SummaryCard.styles.css';
 
-const SummaryCard = ({title, description, difficulty, time, ingredients}) => {
+const SummaryCard = ({title, description, difficulty, time, ingredients, imageUrl}) => {
+    console.log('i', imageUrl);
     return (
         <div className='summary-card'>
             <Card>
+                <img src={imageUrl} alt={`${title}`} />
                 <h1>{title}</h1>
                 <p className="description">{description}</p>
                 <div className="extra-info">
                     <p><span className="bold">Difficulty: </span>{difficulty}</p>
                     <p><span className="bold">Time: </span>{time}</p>
                     <p><span className="bold">Ingredients: </span>{ingredients}</p>
-                </div>
-                
+                </div>                
             </Card>
         </div>
         
