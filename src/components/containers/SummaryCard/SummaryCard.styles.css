@@ -1,17 +1,19 @@
 .summary-card {
+  display: flex;
   width: 50%;
   margin: 1vh 1vw;
 }
 
-img {
-  width: 100%;
+.summary-card-image {
+  margin: auto;
+  height: 50vh;
 }
 
-.description {
+.summary-card-description {
   font-size: large;
 }
 
-.extra-info p {
+.summary-card-extra-info p {
   margin-top: 0px;
   margin-bottom: 0px;
 }
