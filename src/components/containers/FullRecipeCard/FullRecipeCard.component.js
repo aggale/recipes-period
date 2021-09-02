@@ -2,15 +2,14 @@ import React from 'react';
 
 import Card from '../Card/Card.component';
 
-import './SummaryCard.styles.css';
+import './FullRecipeCard.styles.css';
 
-const SummaryCard = ({title, description, difficulty, time, ingredients, imageUrl}) => {
-    console.log('rendering', imageUrl)
+const FullRecipeCard = ({title, description, difficulty, time, ingredients, imageUrl}) => {
     return (
-        <div className='summary-card'>
+        <div className='full-recipe-card'>
+            <h1>{title}</h1>
+            {imageUrl && (<img className="summary-card-image" src={imageUrl} alt={`${title}`} />)}
             <Card>
-                {imageUrl && (<img className="summary-card-image" src={imageUrl} alt={`${title}`} />)}
-                <h1>{title}</h1>
                 <p className="summary-card-description">{description}</p>
                 <div className="summary-card-extra-info">
                     <p><span className="bold">Difficulty: </span>{difficulty}</p>
@@ -23,4 +22,4 @@ const SummaryCard = ({title, description, difficulty, time, ingredients, imageUr
     );
 }
 
-export default SummaryCard;
+export default FullRecipeCard;

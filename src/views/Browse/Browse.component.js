@@ -15,25 +15,25 @@ const BrowsePage = () => {
     let imageUrls = useSelector(selectImageUrls);
     let loading = useSelector(selectLoadingStatus);
 
+    /**
+     * Fetch the recipe data
+     */
     useEffect( ()  => {
         dispatch(fetchRecipes());
     }, []);
 
+    /**
+     * Fetch the Firebase storage urls 
+     */
     useEffect( () => {
-        console.log("rop")
         for (let recipe of Object.values(recipes)) {
-            // Only look this up if we dont' know it
-            if (!imageUrls[recipe.title]) {
-                console.log('got here also')
-                dispatch(fetchImageUrl(recipe));
-            }
-            console.log('got here', imageUrls[recipe.title])
+            dispatch(fetchImageUrl(recipe));
         }
     });
 
     return (
         <div className="browse-cards">
-            {loading ? <Loading /> : recipes.map(recipe => <SummaryCard key={recipe.title} imageUrl={imageUrls[recipe.title]} {...recipe} />)}       
+            {loading ? <Loading /> : recipes.map(recipe => <SummaryCard key={recipe.id} imageUrl={imageUrls[recipe.id]} {...recipe} />)}       
         </div>
     );
 }

@@ -29,10 +29,17 @@ export const fetchRecipes = () => async (dispatch) => {
  * @returns An object with the identifier of the recipe and the imageUrl 
  * or null if image not found
  */
-export const fetchImageUrl = (recipe) => async (dispatch) => {
+export const fetchImageUrl = (recipe) => async (dispatch, getState) => {
     try {
-        const imageUrl = await getImageUrl(recipe.image);
-        dispatch(imageUrlReceived({ recipeId: recipe.title, imageUrl}));
+        // Check if we already know this url since these are static and we won't need to refetch
+        const state = getState();
+        let imageUrl = state.recipes.imageUrls[recipe.image];
+        
+        if (!imageUrl) {
+            imageUrl = await getImageUrl(recipe.image);   
+        }  
+
+        dispatch(imageUrlReceived({ id: recipe.id, imageUrl}));
     } catch (error) {
         console.error(error);
     }
@@ -50,7 +57,7 @@ const recipesSlice = createSlice({
             state.recipes = action.payload;
         },
         imageUrlReceived(state, action) {
-            state.imageUrls[action.payload.recipeId] = action.payload.imageUrl;
+            state.imageUrls[action.payload.id] = action.payload.imageUrl;
         }
     },
 });

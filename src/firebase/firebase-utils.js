@@ -24,11 +24,7 @@ const firebaseConfig = {
    */
   export const convertRecipesSnapshotToMap = (recipes) => {
       return recipes.docs.map(doc => {
-          const { title, description, difficulty, ingredients, time, image } = doc.data();
-
-         //const imageUrl = await getImageUrl(image);
-         
-          console.log('here', title)
+          const { title, description, difficulty, ingredients, time, image, id } = doc.data();
 
           return {
               title,
@@ -36,7 +32,8 @@ const firebaseConfig = {
               difficulty,
               ingredients,
               time,
-              image
+              image,
+              id
           };
       })
       .reduce((recipesObj, recipe) => ({...recipesObj, [recipe.title]: recipe}), {});
@@ -47,15 +44,14 @@ const firebaseConfig = {
    * Reference: https://medium.com/@sultanbutt820/react-native-image-upload-retrieve-delete-from-firebase-cloud-storage-ios-android-e05c7cdbf1d2
    */
 export const getImageUrl = async (imageName) => {
-    console.log('image: ', imageName)
     if (imageName) {
         const imageRef = firebase.storage().ref('/' + imageName);
         try {
             return await imageRef.getDownloadURL();
         } catch (e) {
-            console.log('Error getting image url: ', e)
+            console.error('Error getting image url: ', e)
         }
     }
-    console.log('exiting')
+
     return null;
 }
