@@ -1,21 +1,46 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { firestore, convertRecipesSnapshotToMap, getImageUrl } from '../../firebase/firebase-utils.js';
+import { firestore, convertRecipesSnapshotToMap, convertRecipeSnapshotToObject, getImageUrl } from '../../firebase/firebase-utils.js';
 
 const initialState = { recipes: {}, imageUrls: {} };
 
 /**
  * Gets recipe data out of Firestore.
- * @returns a map of recipe objects
  */
 export const fetchRecipes = () => async (dispatch) => {
     try {
         dispatch(recipesLoading());
         
         const snapshot = await firestore.collection('recipes').get();
+        console.log('snap', snapshot)
         const recipeData = convertRecipesSnapshotToMap(snapshot);
 
         dispatch(recipesReceived(recipeData));
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+/**
+ * Fetch recipe data out of Firestore for a particular recipe. Only fetch
+ * if we don't already have the data since recipe data will rarely change/
+ * need refresh.
+ */
+ export const fetchRecipe = (id) => async (dispatch, getState) => {
+    // Skip fetch if we already have data
+    const state = getState();
+
+    if (state.recipes.recipes[id]) {
+        return;
+    }
+
+    try {
+        dispatch(recipesLoading());
+        
+        const snapshot = await firestore.collection("recipes").doc(id).get();
+        const recipeData = convertRecipeSnapshotToObject(snapshot);
+
+        dispatch(recipeReceived(recipeData));
     } catch (error) {
         console.error(error);
     }
@@ -56,12 +81,16 @@ const recipesSlice = createSlice({
             state.loading = false;
             state.recipes = action.payload;
         },
+        recipeReceived(state, action) {
+            state.loading = false;
+            state.recipes[action.payload.id] = action.payload;
+        },
         imageUrlReceived(state, action) {
             state.imageUrls[action.payload.id] = action.payload.imageUrl;
         }
     },
 });
 
-export const { recipesLoading, recipesReceived, imageUrlReceived } = recipesSlice.actions;
+export const { recipesLoading, recipesReceived, recipeReceived, imageUrlReceived } = recipesSlice.actions;
 
 export default recipesSlice.reducer;

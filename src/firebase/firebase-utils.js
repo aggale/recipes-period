@@ -36,8 +36,28 @@ const firebaseConfig = {
               id
           };
       })
-      .reduce((recipesObj, recipe) => ({...recipesObj, [recipe.title]: recipe}), {});
+      .reduce((recipesObj, recipe) => ({...recipesObj, [recipe.id]: recipe}), {});
   }
+
+  /**
+   * Getting data from firestore and packaging it into the JSON object I need.
+   * @param {*} recipes handle for the recipe collection
+   * @returns JSONy object representing my data
+   */
+   export const convertRecipeSnapshotToObject = (recipeSnapshot) => {
+       console.log('con', recipeSnapshot.data())
+        const { title, description, difficulty, ingredients, time, image, id } = recipeSnapshot.data();
+
+        return {
+            title,
+            description,
+            difficulty,
+            ingredients,
+            time,
+            image,
+            id
+        };
+    }
 
   /**
    * Get a url based on the name of the image in Firestore
