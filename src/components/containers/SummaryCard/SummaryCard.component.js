@@ -9,7 +9,7 @@ const SummaryCard = ({title, description, difficulty, time, ingredients, imageUr
     return (
         <div className='summary-card'>
             <Card>
-                {imageUrl && (<img className="summary-card-image" src={imageUrl} alt={`${title}`} />)}
+                {imageUrl && (<img className="card-image summary-card-image" src={imageUrl} alt={`${title}`} />)}
                 <h1>{title}</h1>
                 <p className="summary-card-description">{description}</p>
                 <div className="summary-card-extra-info">

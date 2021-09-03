@@ -24,13 +24,14 @@ const firebaseConfig = {
    */
   export const convertRecipesSnapshotToMap = (recipes) => {
       return recipes.docs.map(doc => {
-          const { title, description, difficulty, ingredients, time, image, id } = doc.data();
+          const { title, description, difficulty, ingredients, steps, time, image, id } = doc.data();
 
           return {
               title,
               description,
               difficulty,
               ingredients,
+              steps,
               time,
               image,
               id
@@ -46,13 +47,14 @@ const firebaseConfig = {
    */
    export const convertRecipeSnapshotToObject = (recipeSnapshot) => {
        console.log('con', recipeSnapshot.data())
-        const { title, description, difficulty, ingredients, time, image, id } = recipeSnapshot.data();
+        const { title, description, difficulty, ingredients, steps, time, image, id } = recipeSnapshot.data();
 
         return {
             title,
             description,
             difficulty,
             ingredients,
+            steps,
             time,
             image,
             id

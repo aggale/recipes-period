@@ -1,0 +1,32 @@
+.full-recipe-card {
+    display: flex;
+    margin: 3vh auto;
+    width: 60%;
+    text-align: center;
+}
+
+.full-recipe-card-header {
+    
+}
+
+.full-recipe-card-title {
+    text-align: center;
+}
+
+.full-recipe-card-image {
+    width: 90%;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
+.full-recipe-card-ingredients {
+    text-align: left;
+}
+
+.full-recipe-card-heading {
+    font-size: medium;
+}
+
+.full-recipe-card-steps {
+    text-align: left;
+}
