@@ -5,14 +5,21 @@
     padding: 20px;
 }
 
-.headline {
+.about-text {
     font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+.headline {
+    font-size: xx-large;
     font-weight: bold;
-    margin: 40px;
+    margin: 3vh 0vw 5vh 0vw;
 }
 
 .medium-text {
-    font-family: 'Montserrat', sans-serif;
-    font-size: x-large;
-    font-style: italic;
+    font-size: large;
+}
+
+.small-text {
+    font-size: medium;
 }
