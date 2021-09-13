@@ -4,10 +4,16 @@
   background-size: 100%;
 }
 
-img:hover {
+.large-logo {
+  width: 40%;
+  margin-bottom: 1rem;
+}
+
+.image-button:hover {
   cursor: pointer;
 }
 
 .image-button {
-  margin: 2rem;
+  width: 30%;
+  margin: 1rem;
 }
