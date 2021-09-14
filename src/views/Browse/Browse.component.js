@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchRecipes, fetchImageUrl } from '../../redux/recipes/recipes.slice';
 import { selectImageUrls, selectLoadingStatus, selectRecipesForSummary } from '../../redux/recipes/recipes.selectors';
 
-import SummaryCard from '../../components/containers/SummaryCard/SummaryCard.component';
-import Loading from '../../components/containers/Loading/Loading.component';
+import SummaryCardList from '../../components/containers/SummaryCardList/SummaryCardList.component';
 
 import './Browse.styles.css'
 
@@ -32,9 +31,7 @@ const BrowsePage = () => {
     });
 
     return (
-        <div className="browse-cards">
-            {loading ? <Loading /> : recipes.map(recipe => <SummaryCard key={recipe.id} imageUrl={imageUrls[recipe.id]} {...recipe} />)}       
-        </div>
+        <SummaryCardList loading={loading} recipes={recipes} imageUrls={imageUrls} />
     );
 }
 
