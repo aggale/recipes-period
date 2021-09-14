@@ -5,7 +5,6 @@ import Card from '../Card/Card.component';
 import './SummaryCard.styles.css';
 
 const SummaryCard = ({title, description, difficulty, time, ingredients, imageUrl}) => {
-    console.log('rendering', imageUrl)
     return (
         <div className='summary-card'>
             <Card>

@@ -46,7 +46,6 @@ const firebaseConfig = {
    * @returns JSONy object representing my data
    */
    export const convertRecipeSnapshotToObject = (recipeSnapshot) => {
-       console.log('con', recipeSnapshot.data())
         const { title, description, difficulty, ingredients, steps, time, image, id } = recipeSnapshot.data();
 
         return {

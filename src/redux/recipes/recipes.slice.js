@@ -12,7 +12,7 @@ export const fetchRecipes = () => async (dispatch) => {
         dispatch(recipesLoading());
         
         const snapshot = await firestore.collection('recipes').get();
-        console.log('snap', snapshot)
+
         const recipeData = convertRecipesSnapshotToMap(snapshot);
 
         dispatch(recipesReceived(recipeData));
