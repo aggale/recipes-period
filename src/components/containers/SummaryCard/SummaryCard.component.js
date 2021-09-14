@@ -1,14 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Card from '../Card/Card.component';
 
 import './SummaryCard.styles.css';
 
-const SummaryCard = ({title, description, difficulty, time, ingredients, imageUrl}) => {
+const SummaryCard = ({id, title, description, difficulty, time, ingredients, imageUrl}) => {
     return (
         <div className='summary-card'>
             <Card>
-                {imageUrl && (<img className="card-image summary-card-image" src={imageUrl} alt={`${title}`} />)}
+                {imageUrl && (
+                    <Link to={`/recipes/${id}`}>
+                        <img className="card-image summary-card-image" src={imageUrl} alt={`${title}`} />
+                    </Link>
+                )}
                 <h1>{title}</h1>
                 <p className="summary-card-description">{description}</p>
                 <div className="summary-card-extra-info">
