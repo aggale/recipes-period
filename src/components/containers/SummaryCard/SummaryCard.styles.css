@@ -1,12 +1,13 @@
 .summary-card {
   display: flex;
-  width: 50%;
+  width: 50vw;
   margin: 1vh 1vw;
 }
 
 .summary-card-image {
   margin: auto;
-  height: 50vh;
+  width: 46vw;
+  display: block;
 }
 
 .summary-card-description {

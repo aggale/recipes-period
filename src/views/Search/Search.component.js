@@ -38,8 +38,6 @@ const SearchPage = () => {
         e.preventDefault();
 
         setFilteredRecipes(recipes.filter(recipe => recipe.title.toLowerCase().includes(searchInputValue.toLowerCase())));
-
-        searchInputReset();
     }
 
     return (
