@@ -18,8 +18,10 @@ const LandingPage = () => {
   return (
     <div className="landing-body centered column">
       <img src={landingMessage} className="landing-message" alt="Made-from-scratch, fresh, healthy food for busy people" />
-      <img src={browseButton} alt="Browse" className="image-button" onClick={onNavigate('browse')} />
-      <img src={searchButton} alt="Search" className="image-button" onClick={onNavigate('search')} />
+      <div>
+        <img src={browseButton} alt="Browse" className="image-button" onClick={onNavigate('browse')} />
+        <img src={searchButton} alt="Search" className="image-button" onClick={onNavigate('search')} />
+      </div>
     </div>
   );
 };
