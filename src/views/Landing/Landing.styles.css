@@ -1,12 +1,13 @@
 .landing-body {
   text-align: center;
-  background: url("../../assets/images/background-repeat.png");
-  background-size: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 5vh;
 }
 
-.large-logo {
+.landing-message {
   width: 40%;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .image-button:hover {

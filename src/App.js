@@ -13,14 +13,13 @@ import "./App.css";
 class App extends Component {
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <LandingPage />
-          </Route>
-          {/* This is so Header only appears on non-landing pages */}
-          <div>
-            <Header />
+      <div>
+        <Header />
+        <Router>
+          <Switch>
+            <Route path="/">
+              <LandingPage />
+            </Route>
             <Route path="/about">
               <AboutPage />
             </Route>
@@ -33,9 +32,9 @@ class App extends Component {
             <Route path="/search">
               <SearchPage />
             </Route>
-          </div>
-        </Switch>
-      </Router>
+          </Switch>
+        </Router>
+      </div>
     );
   }
 }
