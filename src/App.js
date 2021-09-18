@@ -13,11 +13,10 @@ import "./App.css";
 class App extends Component {
   render() {
     return (
-      <div>
+      <Router>
         <Header />
-        <Router>
-          <Switch>
-            <Route path="/">
+        <Switch>
+            <Route exact path="/">
               <LandingPage />
             </Route>
             <Route path="/about">
@@ -32,9 +31,8 @@ class App extends Component {
             <Route path="/search">
               <SearchPage />
             </Route>
-          </Switch>
-        </Router>
-      </div>
+        </Switch>
+      </Router>
     );
   }
 }

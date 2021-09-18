@@ -1,16 +1,17 @@
 .header-block {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-bottom: 3vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 2vh;
+  margin-bottom: 3vh;
 }
 
 .logo {
-    width: 20%;
-    margin: auto;
+  width: 20%;
+  margin: auto;
 }
 
 .separator {
-    height: 40px;
-    margin: 10px auto 0px auto;
+  height: 40px;
+  margin: 10px auto 0px auto;
 }

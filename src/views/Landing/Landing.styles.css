@@ -10,6 +10,10 @@
   margin-bottom: 2rem;
 }
 
+.landing-navigation {
+  margin-top: 2vh;
+}
+
 .image-button:hover {
   cursor: pointer;
 }
