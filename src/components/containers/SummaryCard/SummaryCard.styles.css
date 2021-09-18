@@ -1,20 +1,61 @@
+/* Card style based on code from: https://codepen.io/klesht/pen/pjjegK */
 .summary-card {
   display: flex;
-  width: 50vw;
-  margin: 1vh 1vw;
+  width: 60vw;
+  margin: 2vh 1vw;
+  background-color: rgba(32, 113, 120, 0.5);
+}
+
+.summary-card a {
+  margin: 0px;
 }
 
 .summary-card-image {
-  margin: auto;
-  width: 46vw;
-  display: block;
+  position: relative;
+  max-width: 100%;
+  height: auto;
 }
 
-.summary-card-description {
-  font-size: large;
+.summary-card article {
+  padding: 1.25em 1.5em;
+}
+
+.summary-card h2 {
+  font-family: "Montserrat", serif;
+  font-weight: normal;
+  text-align: center;
+  margin: 0px;
+}
+
+.summary-card ul {
+  list-style: none;
+  margin: 0.5em 0 0;
+  padding: 0;
+}
+
+.card-recipe-info li {
+  display: inline-block;
+  margin-left: 1em;
+  line-height: 1em;
+}
+
+.card-recipe-info li:first-child {
+  margin-left: 0;
+}
+
+.card-recipe-info .icon {
+  vertical-align: bottom;
+}
+
+.card-recipe-info span:nth-of-type(2) {
+  margin-left: 0.5em;
+  font-size: 0.8em;
+  font-weight: 300;
+  vertical-align: middle;
 }
 
 .summary-card-extra-info p {
+  font-size: smaller;
   margin-top: 0px;
   margin-bottom: 0px;
 }
