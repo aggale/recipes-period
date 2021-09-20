@@ -34,20 +34,20 @@ const SummaryCard = ({
           <ul className="card-recipe-info">
             <li>
               <span className="icon">
-                <i className="fas fa-user-friends"></i>
+                <i className="material-icons">people</i>
               </span>
               <span>{servings}</span>
             </li>
             <li>
               <span className="icon icon-clock">
-                <i className="far fa-clock"></i>
+                <i className="material-icons">access_time</i>
               </span>
               <span>{time}</span>
             </li>
             <li>
               <span className="icon icon-level">
                 <span className="icon">
-                  <i className="fas fa-level-up-alt"></i>
+                  <i className="material-icons">assessment</i>
                 </span>
               </span>
               <span>{difficulty}</span>
