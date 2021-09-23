@@ -28,6 +28,8 @@
 }
 
 .summary-card ul {
+  display: flex;
+  justify-content: center;
   list-style: none;
   margin: 0.5em 0 0;
   padding: 0;
@@ -62,4 +64,10 @@
   font-size: smaller;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+@media (width < 400px) {
+  .card-recipe-info i {
+    font-size: 0.9em;
+  }
 }

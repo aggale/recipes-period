@@ -1,16 +1,17 @@
 .landing-body {
   text-align: center;
-  display: flex;
-  flex-direction: row;
   margin-top: 5vh;
 }
 
 .landing-message {
-  width: 40%;
+  width: 70%;
   margin-bottom: 2rem;
 }
 
 .landing-navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 2vh;
 }
 
@@ -19,7 +20,22 @@
 }
 
 .image-button {
-  width: 30%;
+  width: 60%;
   margin: 1rem;
   border-radius: 10px;
+}
+
+@media (min-width: 600px) {
+  .landing-message {
+    width: 50%;
+  }
+
+  .landing-navigation {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .image-button {
+    width: 30%;
+  }
 }
